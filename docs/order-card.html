@@ -1,0 +1,52 @@
+<meta charset="utf-8">
+<style>
+  :root{--bg:#0f131b;--line:#232a38;--ink:#e6e9ef;--dim:#8a93a6;--acc:#e3c15a;--green:#4ec9a0;--red:#d97a7a}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);font-family:"DejaVu Sans Mono","Liberation Mono",monospace}
+  #card{width:1600px;background:var(--bg);padding:64px 76px 46px}
+  .kicker{color:var(--acc);font-size:19px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:14px}
+  h1{color:var(--ink);font-size:56px;font-weight:700;letter-spacing:-1px;line-height:1.08}
+  .sub{color:var(--dim);font-size:23px;margin-top:16px}
+  .rule{height:1px;background:var(--line);margin:34px 0}
+  .scale{display:flex;align-items:flex-end;gap:0;height:150px;margin:16px 0 6px}
+  .bar{flex:1;background:#1b2230;margin-right:5px;position:relative}
+  .bar.hi{background:var(--green)} .bar.mid{background:#3a4considerable}
+  .axis{display:flex;justify-content:space-between;color:var(--dim);font-size:19px;margin-top:8px}
+  .cols{display:flex;gap:56px;margin-top:30px}
+  .col{flex:1}
+  h2{color:var(--dim);font-size:17px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:14px}
+  .row{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--line);font-size:24px;color:var(--ink)}
+  .row .n{color:var(--dim)}
+  .row .v{font-weight:700}
+  .early .v{color:var(--green)} .late .v{color:var(--red)}
+  .punch{color:var(--ink);font-size:27px;line-height:1.5;margin-top:34px;padding-top:26px;border-top:1px solid var(--line)}
+  .punch b{color:var(--acc)}
+  footer{display:flex;justify-content:space-between;align-items:baseline;margin-top:26px;font-size:21px}
+  .tick{color:var(--acc);font-weight:700;font-size:25px} .repo{color:var(--dim)}
+</style>
+<div id="card">
+  <div class="kicker">python cli.py order</div>
+  <h1>Nobody here is systematically early.</h1>
+  <div class="sub">For every coin two or more tracked accounts bought, ranked by who got in first.
+  0.00 = always first. 1.00 = always last. Random is 0.50.</div>
+  <div class="rule"></div>
+  <div class="cols">
+    <div class="col early">
+      <h2>earliest accounts</h2>
+      <div class="row"><span class="n">trader_85 · 247 coins</span><span class="v">0.35</span></div>
+      <div class="row"><span class="n">trader_57 · 116 coins</span><span class="v">0.35</span></div>
+      <div class="row"><span class="n">trader_62 · 79 coins</span><span class="v">0.42</span></div>
+      <div class="row"><span class="n">trader_102 · 220 coins</span><span class="v">0.44</span></div>
+    </div>
+    <div class="col late">
+      <h2>latest accounts</h2>
+      <div class="row"><span class="n">trader_05 · 20 coins</span><span class="v">0.75</span></div>
+      <div class="row"><span class="n">trader_27 · 16 coins</span><span class="v">0.75</span></div>
+      <div class="row"><span class="n">trader_59 · 14 coins</span><span class="v">0.75</span></div>
+      <div class="row"><span class="n">random baseline</span><span class="v" style="color:#8a93a6">0.50</span></div>
+    </div>
+  </div>
+  <div class="punch">The best account in the whole set lands at <b>0.35</b> across 247 coins.
+  Not 0.05. Not 0.10.<br>That is a mild tilt, not a discovery engine — and it is the top of the list.</div>
+  <footer><div class="tick">$RECEIPTS</div><div class="repo">github.com/SerhiiAI5/receipts</div></footer>
+</div>
