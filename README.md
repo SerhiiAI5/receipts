@@ -12,8 +12,10 @@ number collapses into one:
 Zero dependencies. Python 3.10+. Nothing to install.
 
 ```bash
-python cli.py rank
-python cli.py card trader_43
+python cli.py rank      # who is actually green on realized pnl
+python cli.py card X    # one trader's scorecard
+python cli.py order     # who finds coins first, who arrives after
+python cli.py flow      # who exits while others are buying the same coin
 ```
 
 ```
@@ -68,6 +70,32 @@ share of active weeks that closed green.
 
 The last two carry most of the signal. A big number produced by one coin is luck
 until it repeats. A number spread across positions and weeks is a process.
+
+## Two things a leaderboard will never show you
+
+**`order` — who is early and who follows.** For every coin more than two tracked
+accounts bought, it ranks them by when they got in. `0.00` means always first,
+`1.00` always last, random is `0.50`.
+
+The interesting result is what is *not* there. The earliest account in this data
+averages `0.35`, and how early someone was in the first half of their history
+barely predicts the second half (correlation `+0.16`). There are no systematic
+first movers here. If a tool tells you it found the insiders, ask it for that
+number.
+
+**`flow` — who is on which side.** For each account it measures how much of its
+selling coincides with other accounts buying the same coin, and how much of its
+buying coincides with others selling it.
+
+```
+trader_72     $138,135    85% sells into buys     37% buys into sells
+trader_81     $204,686     0% sells into buys     99% buys into sells
+```
+
+The first row leaves while others arrive. The last row arrives while others
+leave. That is timing overlap, not a direct counterparty — on an AMM everyone
+trades the pool — but if your buying consistently lands when others are exiting,
+you are absorbing their exit.
 
 ## Limitations
 

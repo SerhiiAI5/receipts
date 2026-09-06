@@ -62,3 +62,38 @@ def table(cards: list[Scorecard], limit: int = 15) -> str:
     out += ["", f"{green} of {len(cards)} traders are green on realized pnl.",
             f"as of {_as_of()}."]
     return "\n".join(out)
+
+
+def order_table(rows, limit: int = 10) -> str:
+    """Кто находит монеты сам, а кто приходит следом."""
+    out = [f"{'trader':<18}{'clusters':>10}{'avg place':>12}", ""]
+    for o in rows[:limit]:
+        out.append(f"{o.trader[:18]:<18}{o.clusters:>10}{o.avg_place:>12.2f}")
+    if len(rows) > limit:
+        out += ["...", ""]
+        for o in rows[-3:]:
+            out.append(f"{o.trader[:18]:<18}{o.clusters:>10}{o.avg_place:>12.2f}")
+    out += ["", "0.00 = always first into a coin, 1.00 = always last.",
+            "random would be 0.50. nobody here is systematically early.",
+            f"as of {_as_of()}."]
+    return "\n".join(out)
+
+
+def flow_table(rows, limit: int = 6) -> str:
+    """Кто продаёт в чужие покупки, а кто принимает чужой выход."""
+    head = f"{'trader':<18}{'sold':>12}{'sells into buys':>18}{'buys into sells':>18}"
+    out = [head, ""]
+    for f in rows[:limit]:
+        out.append(f"{f.trader[:18]:<18}{usd(f.sold_usd):>12}"
+                   f"{f.sells_into_buys:>17.0%}{f.buys_into_sells:>18.0%}")
+    if len(rows) > limit:
+        out += ["...", ""]
+        for f in rows[-limit:]:
+            out.append(f"{f.trader[:18]:<18}{usd(f.sold_usd):>12}"
+                       f"{f.sells_into_buys:>17.0%}{f.buys_into_sells:>18.0%}")
+    out += ["",
+            "top rows exit while others are buying the same coin.",
+            "bottom rows buy while others are selling it.",
+            "timing overlap, not a direct counterparty — everyone trades the pool.",
+            f"as of {_as_of()}."]
+    return "\n".join(out)
