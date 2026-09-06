@@ -1,0 +1,47 @@
+<meta charset="utf-8">
+<style>
+  :root{--bg:#0f131b;--line:#232a38;--ink:#e6e9ef;--dim:#8a93a6;--acc:#e3c15a;--green:#4ec9a0}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);font-family:"DejaVu Sans Mono","Liberation Mono",monospace}
+  #card{width:1600px;height:900px;background:var(--bg);padding:70px 78px;display:flex;flex-direction:column}
+  .kicker{color:var(--acc);font-size:19px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:16px}
+  h1{color:var(--ink);font-size:62px;font-weight:700;letter-spacing:-1px}
+  .rule{height:1px;background:var(--line);margin:34px 0 40px}
+  .body{display:flex;flex:1;gap:60px}
+  .left{width:46%}
+  .lab{color:var(--dim);font-size:22px;margin-bottom:14px}
+  .big{color:var(--green);font-size:96px;font-weight:700;letter-spacing:-2px;line-height:1}
+  .cap{color:var(--dim);font-size:22px;margin-top:18px;line-height:1.45}
+  .right{flex:1;border-left:1px solid var(--line);padding-left:60px}
+  .row{display:flex;justify-content:space-between;padding:9px 0;font-size:25px}
+  .row span:first-child{color:var(--dim)}
+  .row span:last-child{color:var(--ink);font-weight:700}
+  .row .g{color:var(--green)}
+  .foot-note{color:var(--dim);font-size:22px;line-height:1.45;margin-top:38px;padding-top:26px;border-top:1px solid var(--line)}
+  footer{display:flex;justify-content:space-between;align-items:baseline;margin-top:20px}
+  .tick{color:var(--acc);font-size:26px;font-weight:700}
+  .repo{color:var(--dim);font-size:22px}
+</style>
+<div id="card">
+  <div class="kicker">out of 50 accounts with a real trade history</div>
+  <h1>eight are actually green.</h1>
+  <div class="rule"></div>
+  <div class="body">
+    <div class="left">
+      <div class="lab">the best of them</div>
+      <div class="big">$68,507</div>
+      <div class="cap">realized.<br>money that actually moved.</div>
+    </div>
+    <div class="right">
+      <div class="row"><span>trader</span><span>trader_43</span></div>
+      <div class="row"><span>leaderboard says</span><span>$2.8M</span></div>
+      <div class="row"><span>actually realized</span><span class="g">$68,507</span></div>
+      <div class="row"><span>win rate</span><span>51%</span></div>
+      <div class="row"><span>profit factor</span><span>2.07</span></div>
+      <div class="row"><span>biggest win</span><span>29% of profit</span></div>
+      <div class="row"><span>green weeks</span><span>65%</span></div>
+    </div>
+  </div>
+  <div class="foot-note">rebuilt from 45,484 swaps. leaderboards count bags,<br>this counts what closed.</div>
+  <footer><div class="tick">$RECEIPTS</div><div class="repo">github.com/SerhiiAI5/receipts</div></footer>
+</div>

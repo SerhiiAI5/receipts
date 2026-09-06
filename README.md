@@ -35,14 +35,21 @@ profit spread across positions and weeks, not carried by one coin.
 
 ## Why the numbers differ from a leaderboard
 
-Running this over the top 100 accounts of one social trading platform:
+Run `python cli.py rank` on the bundled sample and you get this:
 
 | | |
 |---|---|
-| combined PnL the leaderboard shows | **+$103.8M** |
-| combined realized result of the same accounts | **−$1.2M** |
-| accounts green on realized PnL | **15 of 58** |
-| share of their position value that is unrealized | **84%** |
+| accounts in the sample | **104** |
+| scoreable (20+ closed positions) | **50** |
+| green on realized PnL | **8** |
+| combined realized result | **−$2.28M** |
+
+Those are the numbers in this repo, reproducible from the first command above.
+
+A wider run over the platform's 58 *ranked* accounts — a different population, not
+bundled here — showed the leaderboard claiming **+$103.8M** against a realized
+**−$1.2M**, with **84%** of their position value unrealized and sitting on another
+chain. Different denominator, same shape: rank is mostly bags.
 
 Nothing here is an accusation. It is what the number measures. Rank is driven by
 open positions across every chain those accounts touch. If you are picking

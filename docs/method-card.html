@@ -1,0 +1,71 @@
+<meta charset="utf-8">
+<style>
+  :root{
+    --bg:#0f131b; --panel:#141924; --line:#232a38;
+    --ink:#e6e9ef; --dim:#8a93a6; --acc:#e3c15a; --green:#4ec9a0; --red:#d97a7a;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);font-family:"DejaVu Sans Mono","Liberation Mono",monospace}
+  #card{width:1200px;background:var(--bg);padding:54px 58px 40px}
+  .kicker{color:var(--acc);font-size:15px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:14px}
+  h1{color:var(--ink);font-size:40px;font-weight:700;letter-spacing:-.5px;margin-bottom:6px}
+  .sub{color:var(--dim);font-size:16px;margin-bottom:30px}
+  table{width:100%;border-collapse:collapse;font-size:16px}
+  th{color:var(--dim);font-size:13px;letter-spacing:.1em;text-transform:uppercase;
+     text-align:left;padding:0 14px 10px 0;border-bottom:1px solid var(--line)}
+  td{padding:11px 14px 11px 0;border-bottom:1px solid var(--line);vertical-align:top;color:var(--ink)}
+  tr:last-child td{border-bottom:none}
+  .state{font-weight:700;white-space:nowrap}
+  .closed{color:var(--green)} .open{color:var(--acc)} .skip{color:var(--dim)} .inc{color:var(--red)}
+  .why{color:var(--dim);font-size:15px}
+  .split{display:flex;gap:46px;margin-top:34px}
+  .col{flex:1}
+  h2{color:var(--ink);font-size:17px;margin-bottom:12px;font-weight:700}
+  .m{display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--line);font-size:15px}
+  .m span:first-child{color:var(--ink)} .m span:last-child{color:var(--dim);text-align:right;padding-left:18px}
+  footer{margin-top:34px;padding-top:20px;border-top:1px solid var(--line);
+         display:flex;justify-content:space-between;align-items:baseline;font-size:15px}
+  .tick{color:var(--acc);font-weight:700} .repo{color:var(--dim)}
+  .note{color:var(--dim);font-size:15px;margin-top:16px;line-height:1.5}
+</style>
+<div id="card">
+  <div class="kicker">how a swap log becomes a scorecard</div>
+  <h1>What counts as profit, and what never does.</h1>
+  <div class="sub">Every rule below is in the repo. Read it, disagree with it, change it.</div>
+
+  <table>
+    <tr><th style="width:32%">What the log shows</th><th style="width:15%">State</th><th>Why</th></tr>
+    <tr><td>quote asset → token</td><td class="state closed">BUY</td><td class="why">cost basis added at average price</td></tr>
+    <tr><td>token → quote asset</td><td class="state closed">SELL</td><td class="why">realized against that average, in time order</td></tr>
+    <tr><td>token → token</td><td class="state skip">SKIPPED</td><td class="why">two unknowns in one trade — not guessed at</td></tr>
+    <tr><td>quote → quote</td><td class="state skip">SKIPPED</td><td class="why">moving cash is not a position</td></tr>
+    <tr><td>position fully exited</td><td class="state closed">CLOSED</td><td class="why">scored. this is money that moved</td></tr>
+    <tr><td>position still held</td><td class="state open">OPEN</td><td class="why">reported, <b>never added to profit</b>. that is a price, not a result</td></tr>
+    <tr><td>sell with no matching buy</td><td class="state inc">INCOMPLETE</td><td class="why">it arrived by transfer or airdrop — unscoreable, not free profit</td></tr>
+    <tr><td>log starts mid-position</td><td class="state inc">INCOMPLETE</td><td class="why">left-censored history cannot be fixed. marked, not guessed</td></tr>
+  </table>
+
+  <div class="split">
+    <div class="col">
+      <h2>What gets measured</h2>
+      <div class="m"><span>realized pnl</span><span>money that moved</span></div>
+      <div class="m"><span>win rate</span><span>share of closed positions green</span></div>
+      <div class="m"><span>profit factor</span><span>gross profit ÷ gross loss</span></div>
+    </div>
+    <div class="col">
+      <h2>The two that matter</h2>
+      <div class="m"><span>biggest win</span><span>% of gross profit in one coin</span></div>
+      <div class="m"><span>green weeks</span><span>% of active weeks closed up</span></div>
+      <div class="m"><span>open / unscoreable</span><span>shown, never counted</span></div>
+    </div>
+  </div>
+
+  <div class="note">A big number produced by one coin is luck until it repeats. A number spread
+  across positions and weeks is a process. That is the whole difference, and no leaderboard shows it.</div>
+
+  <footer>
+    <div class="tick">$RECEIPTS</div>
+    <div class="repo">45,484 swaps · 104 traders · 8 of 50 green on realized pnl</div>
+    <div class="repo">github.com/SerhiiAI5/receipts</div>
+  </footer>
+</div>
