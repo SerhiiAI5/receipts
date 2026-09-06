@@ -1,0 +1,46 @@
+<meta charset="utf-8">
+<style>
+  :root{--bg:#0f131b;--line:#232a38;--ink:#e6e9ef;--dim:#8a93a6;--acc:#e3c15a;--green:#4ec9a0;--red:#d97a7a}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);font-family:"DejaVu Sans Mono","Liberation Mono",monospace}
+  #card{width:1600px;background:var(--bg);padding:62px 76px 46px}
+  .k{color:var(--acc);font-size:19px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:16px}
+  h1{color:var(--ink);font-size:58px;font-weight:700;letter-spacing:-1.2px;line-height:1.1}
+  .rule{height:1px;background:var(--line);margin:36px 0 30px}
+  .cols{display:flex;gap:64px}
+  .col{flex:1}
+  h2{color:var(--dim);font-size:17px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:18px}
+  .row{display:flex;justify-content:space-between;align-items:baseline;padding:11px 0;border-bottom:1px solid var(--line);font-size:25px}
+  .row .n{color:var(--ink)}
+  .row .s{color:var(--dim);font-size:18px;margin-left:10px}
+  .row .v{font-weight:700;color:var(--red)}
+  .row.worst .v{color:#ff8f8f}
+  .pun{color:var(--ink);font-size:27px;line-height:1.5;margin-top:34px;padding-top:26px;border-top:1px solid var(--line)}
+  .pun b{color:var(--acc)}
+  footer{display:flex;justify-content:space-between;align-items:baseline;margin-top:26px;font-size:21px}
+  .t{color:var(--acc);font-weight:700;font-size:25px} .r{color:var(--dim)}
+</style>
+<div id="card">
+  <div class="k">45,484 swaps · 104 accounts · median roi on closed positions</div>
+  <h1>The one copying loses more<br>than the one being copied.</h1>
+  <div class="rule"></div>
+  <div class="cols">
+    <div class="col">
+      <h2>order of entry into a coin</h2>
+      <div class="row"><span class="n">1st in<span class="s">n=3,174</span></span><span class="v">−26.0%</span></div>
+      <div class="row worst"><span class="n">2nd in<span class="s">n=816</span></span><span class="v">−28.6%</span></div>
+      <div class="row"><span class="n">3rd in<span class="s">n=343</span></span><span class="v">−25.5%</span></div>
+      <div class="row"><span class="n">4th and later<span class="s">n=549</span></span><span class="v">−14.1%</span></div>
+    </div>
+    <div class="col">
+      <h2>how fast the follower got in</h2>
+      <div class="row worst"><span class="n">under 15 min<span class="s">n=355</span></span><span class="v">−36.4%</span></div>
+      <div class="row"><span class="n">15–60 min<span class="s">n=190</span></span><span class="v">−35.8%</span></div>
+      <div class="row"><span class="n">1–6 hours<span class="s">n=242</span></span><span class="v">−31.0%</span></div>
+      <div class="row"><span class="n">over a day<span class="s">n=741</span></span><span class="v">−14.3%</span></div>
+    </div>
+  </div>
+  <div class="pun">Speed does not fix it. The <b>fastest</b> followers are the <b>worst</b> group in the set.<br>
+  Copying an entry without copying an exit is paying for someone else's idea and keeping their mistake.</div>
+  <footer><div class="t">$RECEIPTS</div><div class="r">github.com/SerhiiAI5/receipts</div></footer>
+</div>
